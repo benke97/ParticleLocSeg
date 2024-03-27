@@ -36,9 +36,11 @@ with torch.no_grad():
 
 # Display the image with predicted positions colored by label
 colors = ['springgreen' if label == 1 else 'darkorange' for label in predicted_labels]
+save_name = 'predicted_positions.png'
 plt.figure(figsize=(6,6))
 plt.imshow(image.squeeze(), cmap='gray')
 plt.scatter(predicted_positions[:, 1], predicted_positions[:, 0], c=colors, s=40)
 plt.axis('off')
 plt.tight_layout()
+plt.savefig('figures/' + save_name, dpi=300)
 plt.show()
